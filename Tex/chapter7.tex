@@ -446,6 +446,7 @@ For proving the range-related inclusion, this can relate to the null space, wher
         it satisfies the hypothesis and
         \(\sum_{j \ne k} \langle T e_j, T e_k \rangle
         \ne \sum_{j \ne k} \langle T^* e_j, T^* e_k \rangle \).
+
     Now let \(V = \R^2\), \(e_1, e_2\) be a standart basis of \( \R^2 \) and
     \( a,  b,  c,  d \in \R \). Consider
     \begin{align*}
@@ -469,7 +470,7 @@ For proving the range-related inclusion, this can relate to the null space, wher
         \frac{1}{2}\langle T e_1, T e_2 \rangle + \frac{1}{2}\langle T e_2, T e_1 \rangle
         \ne \\
         \frac{1}{2}\langle T^* e_1, T^* e_2 \rangle + \frac{1}{2}\langle T^* e_2, T^* e_1 \rangle =
-        \langle T^* e_1, T^* e_2 \rangle
+        \langle T^* e_1, T^* e_2 \rangle.
     \end{gather*}
     The identities in the third line hold because \( \F=\R \).
     Plugging \( T \) we get
@@ -478,7 +479,7 @@ For proving the range-related inclusion, this can relate to the null space, wher
         \implies b^2 = c^2 \\
         ab + cd \ne ac + bd.
     \end{gather*}
-    To ensure \(T = T^*\) we take \( b = -c \).
+    To ensure \(T \ne T^*\) we take \( b = -c \).
     Then \( ab - bd = b(a-d) \ne -ab + bd = -b(a-d) \). So picking \( a \ne d \) and \( b \ne 0\)
     will suffice.
     For example, take \( a = 0, \ b = 1, \ c = -1, \ d = 1 \). Then we get the following
