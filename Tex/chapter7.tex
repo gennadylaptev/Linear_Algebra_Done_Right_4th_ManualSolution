@@ -471,15 +471,15 @@ For proving the range-related inclusion, this can relate to the null space, wher
         \frac{1}{2}\langle T^* e_1, T^* e_2 \rangle + \frac{1}{2}\langle T^* e_2, T^* e_1 \rangle =
         \langle T^* e_1, T^* e_2 \rangle
     \end{gather*}
-    The identities above hold because \( \F=\R \).
+    The identities in the third line hold because \( \F=\R \).
     Plugging \( T \) we get
     \begin{gather*}
         a^2 + c^2 = a^2 + b^2 \quad \text{and} \quad  b^2 + d^2 = c^2 + d^2
         \implies b^2 = c^2 \\
         ab + cd \ne ac + bd.
     \end{gather*}
-    Therefore, \( b = -c \) (setting \( b = c \) would result in \(T = T^*\) which fails to be a counterexample)
-    and \( ab - bd = b(a-d) \ne -ab + bd = -b(a-d) \). So picking \( a - d \ne 0 \) and \( b \ne 0\)
+    To ensure \(T = T^*\) we take \( b = -c \).
+    Then \( ab - bd = b(a-d) \ne -ab + bd = -b(a-d) \). So picking \( a \ne d \) and \( b \ne 0\)
     will suffice.
     For example, take \( a = 0, \ b = 1, \ c = -1, \ d = 1 \). Then we get the following
     matrices
@@ -496,7 +496,8 @@ For proving the range-related inclusion, this can relate to the null space, wher
         \end{pmatrix}.
     \end{align*}
     You can easily verify that \(\norm{T e_k} = \norm{T^* e_k}\) for \( k=1, 2 \), but
-    $ T T^* \ne T^* T$. Thus we found a linear operator satisfying the hypothesis which is not normal.
+    $ T T^* \ne T^* T$.
+    Thus, \( T \) satisfies the hypothesis but is not normal.
 \end{proof}
 
 \begin{problem}{30}
