@@ -770,25 +770,32 @@ note that we can do this since \(T\) is self-adjoint.
 \end{problem}
 
 \begin{proof}
-Since \(T\) is self-adjoint, there exists an eigenbasis \(e_1, \ldots, e_n\) with corresponding
-eigenvalues \(\lambda_1, \ldots, \lambda_n\). WLOG we suppose \(\lambda_1 < \cdots < \lambda_n\). Then
-we know that any \(v \in V\) can be expressed as \(v = \sum_{i=1}^{n} a_i e_i\). We now have that
+Since \(T\) is self-adjoint, there exists an orthonormal eigenbasis \(e_1, \ldots, e_n\)
+with the corresponding eigenvalues \(\lambda_1, \ldots, \lambda_n\) and every \( \lambda_i \) is real.
+Then we know that any \(v \in V\) can be expressed as \(v = \sum_{i=1}^{n} c_i e_i\), where
+\( c_i = \langle v, e_i \rangle \). We have
+\begin{gather*}
+    1 = \norm{v}^2 = \sum_{i=1}^{n}{\lvert c_i \rvert}^2 ~ \mathrm{(by \ 6.24)}, \\
+    T v = \sum_{i=1}^{n} c_i \lambda_i e_i.
+\end{gather*}
+Further, we have
 \begin{align*}
-    Tv = \sum_{i=1}^{n} a_i \lambda_i e_i
+    \norm{T v - \lambda v}^2 =
+    \left\langle \sum_{i=1}^{n} c_i (\lambda_i - \lambda) e_i,
+    \sum_{j=1}^{n} c_j (\lambda_j - \lambda) e_j\right\rangle
+    \\ =
+    \sum_{i=1}^{n} \lvert c_i \rvert^2 (\lambda_i - \lambda)^2
+    = \sum_{i=1}^{n} \lvert c_i \rvert^2 (\lambda - \lambda_i)^2 < \epsilon^2.
 \end{align*}
-
-Furthermore,
+Now suppose that \(|\lambda - \lambda_i| \ge \epsilon\) for all \( i = 1, \dots n \). Then
 \begin{align*}
-    \norm{Tv - \lambda v}
-    &= \norm{ \sum_{i=1}^{n} a_i \lambda_i e_i  - \lambda \sum_{i=1}^{n} a_i e_i } \\
-    &= \norm{ \sum_{i=1}^{n} a_i e_i (\lambda_i - \lambda)} \\
-    &= \sum_{i=1}^{n} \norm{a_i (\lambda_i - \lambda)} \\
-    &\geq \sum_{i=1}^{n} |a_i| |\lambda' - \lambda|
+    \norm{T v - \lambda v}^2 = \sum_{i=1}^{n} \lvert c_i \rvert^2 (\lambda - \lambda_i)^2
+    \ge \sum_{i=1}^{n} \lvert c_i \rvert^2 \epsilon^2 =
+    \epsilon^2 \sum_{i=1}^{n} \lvert c_i \rvert^2
+    = \epsilon^2,
 \end{align*}
-
-where we define \(\lambda' = \text{argmin}_i |\lambda_i - \lambda| \). This gives that
-\[|\lambda' - \lambda| < \epsilon / \left(\sum_{i=1}^{n} |a_i|\right) = \epsilon / 1 = \epsilon\]
-where in the last step we use the fact that \(\norm{v} = 1\).
+which leads to contradiction. Thus, there exists some eigenvalue \( \lambda' \) such that
+\(|\lambda - \lambda'| < \epsilon\).
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
