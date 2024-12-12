@@ -756,10 +756,14 @@ which shows that \(T|_U\) is self-adjoint.
 \end{problem}
 
 \begin{proof}
-We know that \(T - 2I\) and \(T - 3I\) equals 0. Combining them to the polynomial of \(T\) gives that
-\[(T - 2I)(T - 3I) = T^2 - 55T + 6I = 0\]
-
-note that we can do this since \(T\) is self-adjoint.
+    Since \( T \) is self-adjoint, it is diagonalizable, therefore its minimal polynomial \( p \)
+    has the form of \( (z - \lambda_1) \ldots (z - \lambda_n) \),
+    where \( \lambda_1, ..., \lambda_n \) are distinct (by 5.62). Since roots of a minimal
+    polynomial are exactly eigenvalues of \( T \) (by 5.27),
+    then we have \( p(z) = (z - 2)(z - 3) \). Thus
+    \begin{equation*}
+        0 = p(T) = (T - 2I)(T - 3I) = T^2 - 5T + 6I.
+    \end{equation*}
 \end{proof}
 
 \begin{problem}{23}
