@@ -1149,14 +1149,20 @@ which shows the desired conclusion.
 \end{problem}
 
 \begin{proof}
-\(\Rightarrow\) Let \(v \in V\), then
-\[\norm{v}^2 = \norm{\langle v,e_1 \rangle e_1  + \langle v,e_2 \rangle e_2}^2 =  |
-\langle v,e_1 \rangle|^2 + |\langle v,e_2 \rangle|^2 = \norm{Sv}^2\]
+    $(\implies)$ Let \( e_1, e_2 \) be an orthonormal list in \( V \).
+    Since \( S \) is an isometry, then \( S^* S = I \). Hence
+    \begin{gather*}
+        \langle S e_j, S e_k \rangle  = \langle e_j, S^* S e_k \rangle =
+        \langle e_j, e_k \rangle = \delta_{j k},
+    \end{gather*}
+    where \( j = 1, 2, k = 1, 2 \). Thus, \( S e_1, S e_2 \) is an orthonormal list in \( W \).
 
-\(\Leftarrow\) we know that
-\[\norm{Sv}^2 = \norm{\langle v,e_1 \rangle Se_1 + \langle v,e_2 \rangle Se_2}^2
-= |\langle v,e_1 \rangle|^2 + |\langle v,e_2 \rangle|^2 = \norm{v}^2\]
-as \(Se_1, Se_2\) are orthonormal basis with norm 1.
+    $(\impliedby)$ Let \( e_1, \dots, e_n \) be an orthonormal basis of \( V \). Then
+    any list \( (e_j, e_k) \), where \( j \ne k \) and \( j=1, \dots, n, \ k = 1, \dots, n\) is
+    orthonormal. By hypothesis, \( (S e_j, S e_k) \) is an orthonormal in \( W \). Hence,
+    \( \langle S e_j, S e_k \rangle = \delta_{j k}\) for  \( j=1, \dots, n, \ k = 1, \dots, n\).
+    Therefore, \( S e_1, \dots, S e_n \) is an orthonormal list in \( W \). Thus, \( S \) is an
+    isometry.
 \end{proof}
 
 \begin{problem}{2}
@@ -1344,6 +1350,205 @@ for unitary matrix \(Q\) and diagonal matrix \(D\) with entries to be the corres
 Hence, we get that
 \[Q^*AQ\]
 is diagonal.
+\end{proof}
+
+\begin{problem}{19}
+    Suppose \( n \) is a positive integer. For this exercise, we adopt the notation that a typical
+    element \( z \) of \( \C^n \) is denoted by \( z = (z_0, z_1, \ldots, z_{n-1}) \).
+    Define linear functionals \( \omega_0, \omega_1, \ldots, \omega_{n-1} \) on \( \C^n \) by
+    \begin{equation*}
+        \omega_j(z) = \omega_j(z_0, z_1, \ldots, z_{n-1}) = \frac{1}{\sqrt{n}} \sum_{m=0}^{n-1}
+        {z_m e^{(-2 \pi i) j \frac{m}{n}}}.
+    \end{equation*}
+    The \textit{discrete Fourier transform} is the operator \( \mathcal{F}: \C^n \rightarrow \C^n \)
+    defined by
+    \begin{equation*}
+        \mathcal{F}z = (\omega_0(z), \omega_1(z), \ldots, \omega_{n-1}(z)).
+    \end{equation*}
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that \(  \mathcal{F} \) is a unitary operator on \( \C^n \).
+        \item Show that if \( (z_0, z_1, \ldots, z_{n-1}) \in \C^n \) and
+            \( z_n \) is defined to equal \( z_0 \), then
+            \begin{gather*}
+                \mathcal{F}^{-1}  (z_0, z_1, \ldots, z_{n-1}) =
+                \mathcal{F} (z_n, z_{n-1}, \ldots, z_{1}).
+            \end{gather*}
+        \item  Show that \( \mathcal{F}^4 = I \).
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    \begin{enumerate}[label=(\alph*)]
+    \item Let \( f_0, \ldots, f_{n-1} \) be a standart basis on \( \C^n \). Then
+    \begin{gather*}
+        \omega_j(f_k) = \frac{1}{\sqrt{n}} \sum_{m=0}^{n-1}
+        {\delta_{m, k} e^{(-2 \pi i) j \frac{m}{n}} } =
+        \frac{1}{\sqrt{n}} e^{(-2 \pi i) j \frac{k}{n}},\\
+        \mathcal{F}(f_k) = (\omega_0(f_k), \omega_1(f_k), \ldots, \omega_{n-1}(f_k)) = \\
+        \frac{1}{\sqrt{n}}
+        (e^{(-2 \pi i \frac{k}{n}) 0}, e^{(-2 \pi i \frac{k}{n}) 1},
+        \ldots, e^{(-2 \pi i \frac{k}{n})(n-1)}).
+    \end{gather*}
+    Therefore
+    \begin{gather*}
+        \langle \mathcal{F}(f_k), \mathcal{F}(f_l) \rangle = \\
+        %\frac{1}{n}
+        %(e^{(-2 \pi i) 0 \frac{k}{n}},
+        %\ldots, e^{(-2 \pi i) (n-1) \frac{k}{n}})
+        %\cdot
+        %(e^{(-2 \pi i) 0 \frac{l}{n}},
+        %\ldots, e^{(-2 \pi i) (n-1) \frac{l}{n}})
+        %= \\
+        \frac{1}{n}
+        \sum_{j=0}^{n-1} e^{(-2 \pi i \frac{k}{n})j }
+        \overline{e^{(-2 \pi i \frac{l}{n}) j}}
+        =
+        \frac{1}{n}
+        \sum_{j=0}^{n-1} e^{(-2 \pi i \frac{k}{n})j }
+        e^{(2 \pi i \frac{l}{n}) j}
+        =
+        \frac{1}{n}
+        \sum_{j=1}^{n-1} e^{(\frac{2 \pi i}{n})j(l-k)}.
+    \end{gather*}
+    If \( k = l \), then
+    \begin{equation*}
+        \langle \mathcal{F}(f_k), \mathcal{F}(f_l) \rangle =
+        \frac{1}{n}
+        \sum_{j=0}^{n-1} e^{0}
+        =
+        \frac{1}{n}
+        \sum_{j=0}^{n-1} 1 = 1.
+    \end{equation*}
+    Now suppose \( k \ne l \).
+    Note that \( e^{\frac{2 \pi i}{n}} \) is the nth root of unity which we denote as~\( \alpha \).
+    Then \( \alpha^{(l-k)}  \ne 1 \) is also the nth root of unity,
+    therefore \( \alpha^{(l -k)} = e^{2 \pi i \frac{p}{n}} \) for some integer \( p \).
+    We have
+    \begin{gather*}
+        \langle \mathcal{F}(f_k), \mathcal{F}(f_l) \rangle =
+        \frac{1}{n}
+        \sum_{j=0}^{n-1} \alpha^{(l-k)j}
+        =
+        \frac{1 - \alpha^{(l-k)n}}{n (1 - \alpha^{(l-k)})}
+        =
+        \frac{1 - 1}{n (1 - e^{2 \pi i \frac{p}{n}})}
+        = 0,
+    \end{gather*}
+    where the second identity comes from the formula for the partial sum of of the geometric series
+    and the third identity comes from
+    \begin{equation*}
+    \alpha^n =  e^{2 \pi i \frac{p}{n} n } =
+    e^{2 \pi i p} = e^0 =~1.
+    \end{equation*}
+    The equation above implies that
+    \( \mathcal{F} f_1, \dots, \mathcal{F} f_n\) is an orthonormal list in \( \C^n \).
+    Since it has the length \( n = \C^n \), it is an orthonormal basis of \( \C^n \).
+    Thus by 7.53(d) \(  \mathcal{F} \) is unitary.
+
+    \item
+    Let \( \alpha = e^{-\frac{2 \pi i}{n}} \).
+    We can write the matrix of \( \mathcal{F} \) w.r.t. the standart basis as
+    \begin{gather*}
+        \frac{1}{\sqrt{n}}
+        \begin{pmatrix}
+           \alpha^{0 \cdot 0} & \alpha^{0 \cdot 1}  & \ldots & \alpha^{0 \cdot n}  \\
+           \alpha^{1 \cdot 0} & \alpha^{1 \cdot 1} & \ldots  & \alpha^{1 \cdot (n-1)} \\
+           \vdots  & \ddots &  &  \\
+           \alpha^{(n-1) \cdot 0} & \alpha^{(n-1) \cdot 1} & \ldots  & \alpha^{(n-1) \cdot (n-1)}
+        \end{pmatrix}
+        = \\
+        \frac{1}{\sqrt{n}}
+        \begin{pmatrix}
+           1 & 1 & \ldots & 1  \\
+           1 & \alpha & \ldots & \alpha^{(n-1)} \\
+           \vdots  & \ddots &  &  \\
+           1 & \alpha^{(n-1)} & \ldots  & \alpha^{(n-1) (n-1)}
+        \end{pmatrix}.
+    \end{gather*}
+    Since \( \mathcal{F} \) is unitary, then \( \mathcal{F}^{-1} = \mathcal{F}^* \) and
+    the matrix of \( \mathcal{F}^{-1} \) is just the conjugate transpose of the matrix of \( \mathcal{F} \).
+    Therefore
+    \begin{gather*}
+        \mathcal{F}^{-1} (z_0, z_1, \ldots, z_{n-1}) =
+        (\overline\omega_0(z), \overline\omega_1(z), \ldots, \overline\omega_{n-1}(z)),
+    \end{gather*}
+    where
+    \begin{gather*}
+        \overline\omega_j(z) = \frac{1}{\sqrt{n}} \sum_{m=0}^{n-1}
+        {z_m \overline{\alpha^{jm}}}.
+    \end{gather*}
+    Consider the jth coordinate of \(\mathcal{F} (z_n, z_{n-1}, \ldots, z_{1})\),
+    multiplied by \( \sqrt{n} \)
+    \begin{gather*}
+        {\sqrt{n}} \mathcal{F} (z_n, z_{n-1}, \ldots, z_{1})_{j} =
+        \sum_{m=0}^{n-1} z_{n-m} \alpha^{jm}
+        \overset{(1)}{=}
+        \sum_{k=1}^{n} z_{k} \alpha^{j(n - k)}
+        \overset{(2)}{=}  \\
+        \sum_{k=1}^{n} z_{k} \alpha^{-jk}
+        =
+        \sum_{k=1}^{n} z_{k} \overline{\alpha^{jk}}
+        =
+        \sum_{k=1}^{n-1} z_{k} \overline{\alpha^{jk}} + z_n \overline{\alpha^{jn}}
+        \overset{(3)}{=}
+        \sum_{k=1}^{n-1} z_{k} \overline{\alpha^{jk}} + z_0 \overline{\alpha^{0}}
+        =
+        \sum_{k=0}^{n-1} z_{k} \overline{\alpha^{jk}}
+        \\ =
+        {\sqrt{n}} \mathcal{F}^{-1} (z_0, z_1, \ldots, z_{n-1})_{j},
+    \end{gather*}
+    in (1) we made the substitution \( k = m - n \) and, correspondingly, \( m = n -k \);
+    in (2) and (3) we used \( \alpha^n = 1 \);
+    in (3) we used \( z_n = z_0 \).
+    Thus \(\mathcal{F}^{-1}  (z_0, z_1, \ldots, z_{n-1}) =
+                \mathcal{F} (z_n, z_{n-1}, \ldots, z_{1}) \).
+    \item
+        Let \( A = \sqrt{n} \mathcal{M}(\mathcal{F})\), \( B  = A^2 \), \( C = B^2 \).
+        We will be enumerating matrix rows and columns with \( 0, \dots, n-1 \).
+        We have
+    \begin{gather*}
+        B_{ij} = \sum_{k=0}^{n-1}{A_{ik} A_{kj}}
+        = \sum_{k=0}^{n-1}{\alpha^{ik} \alpha^{kj}}
+        = \sum_{k=0}^{n-1}(\alpha^{i+j})^{k}.
+    \end{gather*}
+    We've seen earlier taht the partial sum of this geometric series
+    equals 0 if \( \alpha^{i+j} \ne 1 \) and \( n \) otherwise.
+    Since \( \alpha \) is the nth root of unity, then \( \alpha^{i+j} = 1 \) iff
+    \( i+j \equiv 0  ~\mathrm{mod}~ n \).  Hence
+    \begin{gather*}
+        B_{ij} =
+        \begin{cases}
+            n, & \mathrm{if}~i+j \equiv 0  ~\mathrm{mod}~ n, \\
+            0, & \mathrm{otherwise}.
+        \end{cases}
+    \end{gather*}
+    Further, we have
+    \begin{gather*}
+        C_{pq} = \sum_{m=0}^{n-1} B_{pm} B_{mq}.
+    \end{gather*}
+    Clearly,
+    \begin{gather*}
+        B_{pm} B_{mq} \ne 0 \iff p+m \equiv 0  ~\mathrm{mod}~ n
+        ~\text{and}~ q+m \equiv 0  ~\mathrm{mod}~ n
+        \iff p = q = n - m.
+    \end{gather*}
+    The last identity holds because of our summation limits. Also, for the
+    same reason if \( p=q \),
+    then only one element in the sum above is nonzero.
+    Therefore,
+    \begin{gather}
+        C_{pq} =
+        \begin{cases}
+            n^2, & p=q \\
+            0, & \mathrm{otherwise}.
+        \end{cases}
+    \end{gather}
+    Finally, we have
+    \begin{gather*}
+        n^2 I = C = B^2 = A^4 = n^2 \mathcal{M}(\mathcal{F})^4.
+    \end{gather*}
+    Thus, \(  \mathcal{M}(\mathcal{F})^4 = I\).
+    \end{enumerate}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
