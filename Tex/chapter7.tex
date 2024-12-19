@@ -1324,6 +1324,30 @@ so \(v \in l.h.s.\). Conversely, take any \(Sv \in l.h.s.\), then \(\norm{Sv} = 
 there exists \(w\) with \(\norm{w} \leq 1\) such that \(Sw = u \).
 \end{proof}
 
+\begin{problem}{12}
+    Prove or give a counterexample: If \( S \in \L(V) \) is invertible and
+    \( \norm{S^{-1} v} = \norm{S v} \)
+for every \( v \in V \) , then \( S \) is unitary.
+\end{problem}
+
+\begin{proof}
+    Note that \( \norm{v} = \norm{S^{-1}(Sv)} = \norm{S^2 v} \). Hence, \( S^2 \) is an isometry
+    and \( S \) is its square root.
+    As a counterexample we can use a non-unitary square root of identity operator
+    (which is trivially an isometry). Consider
+    \begin{equation*}
+        S =
+        \begin{pmatrix}
+            i & 2 \\
+            1 & -i
+        \end{pmatrix}.
+    \end{equation*}
+    You can easily verify that \( S^2 = I \iff S^{-1} = S\), and that it is not unitary.
+    (This counterexample is taken from
+    \href{https://www.tandfonline.com/doi/full/10.1080/03081087.2018.1474847}{this paper}).
+\end{proof}
+
+
 \begin{problem}{13}
     Explain why the columns of a square matrix of complex numbers form an orthonormal list in \(\C^n\)
     if and only if the rows of the matrix form an orthonormal list in \(\C^n\).
