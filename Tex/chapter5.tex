@@ -160,6 +160,37 @@ Take any \(v \in \bigcap_{i=1}^m V_i\), then we know that \(Tv \in V_i\) for eac
 and thus \(Tv \in \bigcap_{i=1}^m V_i\).
 \end{proof}
 
+\begin{problem}{4}
+    Prove or give a counterexample: If $ V $ is finite-dimensional and 
+    $ U $ is a subspace of $ V $ that is invariant under every operator on $ V $,
+    then $ U = \{0\} $ or $ U = V $.
+\end{problem}
+
+\begin{proof}
+    If $ U = \{ 0 \} $, then there's nothing to prove
+    ($ T(0) = 0 \in \{ 0 \} $ for any $ T  \in \Lc(V) $).
+    Therefore, we can assume that $ U \ne \{ 0 \} $.
+
+    Let $ \dim V = n $. Since $ V $ is finite-dimensional, then $ V \cong \mathbb{F}^{n} $.
+    So, we consider $ \mathbb{F}^{n} $ instead of $ V $. Let's denote $ e_1, \ldots, e_{n} $
+    the standart basis of $ \mathbb{F}^{n} $. Consider a function $ T_{ij} $
+    \begin{gather*}
+        T_{ij}(v) = T_{ij}( \sum_{k=1}^{n} a_k e_k) = a_i e_j,
+    \end{gather*}
+    that is, $ T_{ij} $ just leaves the ith coordinate and moves it to the jth position.
+    It is clear, that $ T $ is linear. For example,
+    \begin{gather*}
+        T_{ij}(u + v) = T( \sum_{k=1}^{n} (a_k + b_k) e_k ) =
+        (a_i + b_i) e_j = a_i e_j + b_i e_j = T_{ij}(u) + T_{ij} (v).
+    \end{gather*}
+    The proof is similar for scalar multiplication.
+
+    Now, let $ u = (a_1, \ldots, a_n) \in U $. Since $ u \ne 0 $, then exists such $ m \leq n $
+    that $ a_m \ne 0 $. Then $ \frac{1}{a_m} T_{mj}(u) = e_j $. By hypothesis, 
+    $ U  $ is invariant under any operator, in particular, $ T_{mj} $. Therefore,
+    $ e_j \in U $ for $ j = 1, \ldots, n $. Then, $ \dim U = \dim V $, hence $ U = V $.
+\end{proof}
+
 \begin{problem}{5}
     Suppose \(T \in \Lc(\R^2)\) is defined by \(T(x, y) = (-3y, x)\). Find the eigenvalues 
     of \(T\).
