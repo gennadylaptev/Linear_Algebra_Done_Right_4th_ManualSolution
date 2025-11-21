@@ -217,6 +217,22 @@ For \(\lambda = 0\), the eigenvector would be \(\{(z_1, 0, z_3) \colon z_1, z_3 
 For \(\lambda = 5\), we have that \(\{(0, 0, z_3) \colon z_3 \in \F\}\). 
 \end{proof}
 
+\begin{problem}{8}
+Suppose $ P \in \Lc(V) $ 
+is such that $ P^{2} = P $. Prove that if $ \lambda $ is an eigenvalue of $ P $,
+then $ \lambda = 0 $ or $ \lambda = 1 $.    
+\end{problem}
+
+\begin{proof}
+    Let $ v \ne 0 $ be the corresponding eigenvector. Then
+    \begin{gather*}
+        P^2 v = P v = \lambda v \\ 
+        P^2 v = P(P v) = P (\lambda v) = \lambda P v = \lambda^{2} v.
+    \end{gather*}
+    So $ \lambda = \lambda^{2} $, therefore $ \lambda = 0 $ or $ \lambda = 1 $.
+    
+\end{proof}
+
 \begin{problem}{9}
     Define \(T \colon \Pc(\R) \to \Pc(\R)\) by \(Tp = p'\). Find all eigenvalues and 
     eigenvectors of \(T\).
