@@ -457,6 +457,13 @@ For the column case, we can simply take \(A = A^\top\) and we know the eigenvalu
         T(u+w) =  \lambda(u + w) = \lambda \frac{\alpha - \lambda}{\alpha - \lambda} w.
     \end{gather*}
     Comparing last two identities we get $ \beta = \lambda $, therefore $ \alpha = \beta $.
+%Suppose not. Then there exists \(\lambda_u\) and \(\lambda_w\) such that 
+%\[Tu = \lambda_u u \ \ \ Tw = \lambda_w w\]
+%
+%We also know that 
+%\[T(u+w) = Tu + Tw = \lambda_u u + \lambda_w w = \lambda(u + w)\]
+%
+%for some \(\lambda\). Solving this gives that \(\lambda = \lambda_u = \lambda_w\).
 \end{proof}
 
 \begin{problem}{26}
@@ -1157,12 +1164,34 @@ completing the proof.
 \end{problem}
 
 \begin{proof}
-Since \(T^2\) has an upper triangular matrix wrt. some basis of \(V\), its minimal polynomial 
-equals \(p_{T^2}(x) = (z - \lambda_1)\cdots(z - \lambda_m)\) for some \(\lambda_1, \ldots, \lambda_m \in \F\). 
-This means that \(p_{T^2}(T^2) = (T^2 - \lambda_1 I) \cdots (T^2 - \lambda_m I) = (T - \sqrt{\lambda_1}I) 
-(T + \sqrt{\lambda_1}I)\cdots(T - \sqrt{\lambda_m}I)(T + \sqrt{\lambda_m}I) = 0\). This means that the minimal polynomial 
-of \(T\) can also be in the form of an upper-triangular matrix.  
+Consider $ V = \mathbb{R}^{2} $ and $ T $ -- rotation by $ 90^{ \circ} = \frac{\pi}{2} $.
+Then in the standard basis (with a slight abuse of notation)
+\begin{gather*}
+    T =
+    \begin{pmatrix}
+        \cos \frac{\pi}{2} & -\sin \frac{\pi}{2} \\ 
+        \sin \frac{\pi}{2} & \cos \frac{\pi}{2} 
+    \end{pmatrix} =
+    \begin{pmatrix}
+        0 & -1 \\ 
+        1 & 0
+    \end{pmatrix} .
+\end{gather*}
+Easy to see that $ T^{2} = -I \iff T^{2} + I = 0 $.
+Note that $ T^{2} $ has an upper-triangular matrix (since a diagonal matrix is a special case
+thereof).
+From geometrical considerations it is easy
+to see that $ T \ne cI $. Therefore $ p(z) = z^{2} +1 $ is a minimal polynomial of $ T $.
+It has no real roots (the roots are $ \pm i $), so $ p(z) $ cannot be decomposed into a product 
+of monomials. So, by the previous result, $ T $ has no upper-triangular matrix.
+Hence, we constructed a counterexample.
 
+%Since \(T^2\) has an upper triangular matrix wrt. some basis of \(V\), its minimal polynomial 
+%equals \(p_{T^2}(x) = (z - \lambda_1)\cdots(z - \lambda_m)\) for some \(\lambda_1, \ldots, \lambda_m \in \F\). 
+%This means that \(p_{T^2}(T^2) = (T^2 - \lambda_1 I) \cdots (T^2 - \lambda_m I) = (T - \sqrt{\lambda_1}I) 
+%(T + \sqrt{\lambda_1}I)\cdots(T - \sqrt{\lambda_m}I)(T + \sqrt{\lambda_m}I) = 0\). This means that the minimal polynomial 
+%of \(T\) can also be in the form of an upper-triangular matrix.  
+%
 % We can try to prove the contrapositive: suppose \(T\) does not have upper-triangular matrix with respect 
 % to any basis, then \(T^2\) does not as well. We can prove this from the perspective of matrix multiplication.
 % Let \(\Ab\) be the matrix of \(T\), then we know that there exists nonzero entry \((i, j)\) with 
