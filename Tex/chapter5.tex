@@ -313,6 +313,14 @@ and thus \(\lambda\) is an eigenvalue of \(T\) as well.
 \end{problem}
 
 \begin{proof}
+%Let $ u \in V $ be a corresponding eigenvector. Let $ u = (a_1, \ldots, a_n) $ its
+%coordinates in the given basis. Since $ u \ne 0 $, then some $ a_k \ne 0 $. Then 
+%\begin{gather*}
+%    Tu = T( \sum_{i=1}^{n} a_i v_i)  =  \sum_{i=1}^{n} a_i T(v_i) = \sum_{i=1}^{n}
+%    a_i \lambda v_i \implies \\ 
+%    T v_k = \lambda v_k.
+%\end{gather*}
+%
 We know that 
 \[T v_k = \sum_{j=1}^{n} \Mc(T)_{j, k} v_j = \lambda v_k\]
 and that by Triangular inequality we have 
@@ -429,13 +437,26 @@ For the column case, we can simply take \(A = A^\top\) and we know the eigenvalu
 \end{problem}
 
 \begin{proof}
-Suppose not. Then there exists \(\lambda_u\) and \(\lambda_w\) such that 
-\[Tu = \lambda_u u \ \ \ Tw = \lambda_w w\]
+    Suppose $ Tu = \alpha u, Tw = \beta u, T(u+w) = \lambda(u + w) $. Then
+    \begin{gather*}
+        \alpha u + \beta w = \lambda u + \lambda w \\ 
+        (\alpha - \lambda) u = (\lambda - \beta) w.
+    \end{gather*}
 
-We also know that 
-\[T(u+w) = Tu + Tw = \lambda_u u + \lambda_w w = \lambda(u + w)\]
+    If $ \lambda = \beta $, then $ (\alpha - \lambda) u = 0 $, since
+    $ u \ne 0 $, therefore $ \alpha - \lambda = 0 $, hence $ \alpha = \lambda = \beta $.
+    In the same fashion, if $ \lambda = \alpha $, then $ \alpha = \beta $.
 
-for some \(\lambda\). Solving this gives that \(\lambda = \lambda_u = \lambda_w\).
+    Assume $ \lambda \ne \alpha $. Then 
+    \begin{gather*}
+        u = \frac{\lambda - \beta}{\alpha - \lambda} w \\ 
+        T(u+w) = T(\frac{\lambda - \beta}{\alpha - \lambda} w +
+        \frac{\alpha - \lambda}{\alpha - \lambda} w) =
+        T(\frac{\alpha - \beta}{\alpha - \lambda} w) =
+        \beta \frac{\alpha - \beta}{\alpha - \lambda} w \\ 
+        T(u+w) =  \lambda(u + w) = \lambda \frac{\alpha - \lambda}{\alpha - \lambda} w.
+    \end{gather*}
+    Comparing last two identities we get $ \beta = \lambda $, therefore $ \alpha = \beta $.
 \end{proof}
 
 \begin{problem}{26}
