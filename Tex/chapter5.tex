@@ -1232,6 +1232,58 @@ are both upper-triangular, by rule of matrix multiplication, \(T_{ii} T^{-1}_{ii
 the entries on the diagonal of \(T^{-1}\) is the inverse of \(T\)'s, completing the proof.  
 \end{proof}
 
+\begin{problem}{4}
+   Give an example of an operator whose matrix with respect to some basis
+contains only 0 ’s on the diagonal, but the operator is invertible 
+\end{problem}
+
+\begin{proof}
+    Consider 
+\begin{gather*}
+    T =
+    \begin{pmatrix}
+        0 & -1 \\ 
+        1 & 0
+    \end{pmatrix}.
+\end{gather*}
+Then $ T^{2} = - I $, therefore $ T^4 = I $. So $ T T^{3} = I $.
+\end{proof}
+
+\begin{problem}{5}
+Give an example of an operator whose matrix with respect to some basis
+contains only nonzero numbers on the diagonal, but the operator is not
+invertible.
+\end{problem}
+
+\begin{proof}
+    Consider 
+\begin{gather*}
+    T =
+    \begin{pmatrix}
+        1 & 1 \\ 
+        1 & 1
+    \end{pmatrix} \\ 
+    \begin{pmatrix}
+        1 & 1 \\ 
+        1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a \\ 
+        - a
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        a -a \\ 
+        a -a
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        0 \\ 
+        0
+    \end{pmatrix},
+\end{gather*}
+for any $ a \ne 0 \in \mathbb{F} $. Therefore $ T $ is not injective, hence
+it is not invertible.
+\end{proof}
+
 \begin{problem}{6}
     Suppose \(\F = \C\), \(V\) is finite-dimensional, and \(T \in \Lc(V)\). Prove that if 
     \(k \in \{1, \ldots, \dim V\}\), then \(V\) has a \(k\)-dimensional subspace 
