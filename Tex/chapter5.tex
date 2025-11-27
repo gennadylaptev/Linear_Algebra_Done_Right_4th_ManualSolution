@@ -1522,6 +1522,47 @@ Then we have that
 \end{bmatrix} =  T^4 \]
 \end{proof}
 
+\begin{problem}{2}
+    Suppose $ T \in \mathcal{L}(V) $ has a diagonal matrix $ A $ with respect to some basis of 
+    $ V $. Prove that if $ \lambda \in \mathbb{F} $, then $ \lambda $ appears
+    on the diagonal of $ A $ precisely $ \dim E(\lambda, T) $ times.
+\end{problem}
+
+\begin{proof}
+    First, if $ \dim E(\lambda, T) = 0 $, then $ \lambda $ does not appear on the diagonal.
+    So we assume that $ \lambda $ is an eigenvalue of $ T $.
+    
+    Suppose $ v_1, \ldots, v_n $ is the basis w.r.t which $ A $ is diagonal.
+    Then all of them are eigenvectors of $ T $.
+    Assume that $ \lambda $ appears $ k $ times on the diagonal of $ A $.
+    WLOG let us reindex $ \{ v_i \} $ s.t. $ v_{1}, \ldots, v_{k} $ are
+    eigenvectors corresponding to the 
+    eigenvalue $ \lambda $
+    (we can always restore original indices of $ v_i $).
+    Also, let $ m = \dim E(\lambda, T) $. 
+
+    Clearly, $ k \leq m $, since $ v_{1}, \ldots, v_{k} $ are linearly independent
+    and they all are in $ E(\lambda, T) $. Now assume $ k < m $.
+    Then exists $ u \ne 0 \in E(\lambda, T) $ s.t. 
+    $ u \not \in span(v_1, \ldots, v_k) $.
+    Let
+    \begin{gather*}
+        u = a_1 v_1 + \ldots + a_n v_n = a_{k+1} v_{k+1} + \ldots + a_{n} v_n
+    \end{gather*}
+    be the decomposition of $ u $ w.r.t to the basis.
+    Then
+    \begin{gather*}
+        0 = Tu - T \sum_{j=k+1}^{n} a_{j} v_{j} =
+        \lambda u - \sum_{j=k+1}^{n} \mu_{j} a_{j} v_{j}
+        = 
+        \\ \sum_{j=k+1}^{n} \lambda a_{j} v_{j} - \sum_{j=k+1}^{n} \mu_{j} a_{j} v_{j}
+        = \sum_{j=k+1}^{n} (\lambda - \mu_j) a_{j} v_{j},
+    \end{gather*}
+    where  $ \mu_j $ is the eigenvalue corr. to $ v_j $. Since $ v_j $ are all 
+    linearly independent, then $ \lambda = \mu_j $ which leads to contradiction.
+    Therefore, $ k = m $.
+\end{proof}
+
 \begin{problem}{3}
     Suppose \(V\) is finite-dimensional and \(T \in \Lc(V)\). Prove that if the operator \(T\) is 
     diagonalizable, then \(V = \nul T \oplus \range T\).
